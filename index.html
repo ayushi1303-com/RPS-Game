@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK/PAPER/SCISSOR GAME</title>
+    <style>
+        body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    
+}
+.box{
+    background-color: rgb(68, 157, 107);
+    text-align: center;
+    padding: 5px solid black;
+    border-radius: 20px;
+    padding: 50px 100px;
+    border: 2px solid black;
+}
+p{
+    font-size: 200%;
+}
+input{
+    height: 50px;
+    width: 250px;
+    border-radius: 20px ;
+
+}
+img{
+    height: 200px;
+    width: 200px;
+    border: 5px solid black;
+}
+    h1{
+font-size:50px;
+    }
+
+        
+    </style>
+   
+</head>
+<body>
+    <div class="container">
+    <div class="box">
+        <h1>RPS Game</h1>
+    <button onclick="rock()"> <img src="https://imageio.forbes.com/specials-images/imageserve/dv424076/Boulder--Namibia--Africa/960x0.jpg?format=jpg&width=960" alt="" ></button>
+    <button onclick="scissor()"><img src="https://scooboo.in/cdn/shop/files/deli-clasic-140mm-sharp-cutting-scissors-scissor-scooboodeli69217349600546005-609251.jpg?v=1720643112&width=1214" alt=""></button>
+
+    <button onclick="paper()"><img src="data:image/png;base64,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" alt="" ></button>
+</div>
+</div>
+    <script>
+       function rock(){
+            let value=(Math.floor(Math.random()*3));
+            let r=0;
+            if(value==r){
+                alert("Tie");
+                console.log("you choose rock and computer choose rock");
+            }
+            else if(value==1){
+                alert("you won");
+                console.log("you choose rock and computer choose scissor");
+            }else
+             {alert("computer won");
+             console.log("you choose rock and computer choose paper"); } 
+        }
+        function scissor(){            
+            let value=(Math.floor(Math.random()*3));
+            let s=1;
+            if(value==s){
+                alert("Tie");
+                console.log("you choose scissor and computer choose scissor");  
+                
+            }
+            else if(value==0){
+                alert("computer won");
+                console.log("you choose scissor and computer choose rock");  
+            }else
+            { alert("you won");
+             console.log("you choose scissor and computer choose paper");}  
+
+        }
+        function paper(){
+            let value=(Math.floor(Math.random()*3));
+            let p=2;
+            if(value==p){
+                alert("Tie");
+                console.log("you choose paper and computer choose paper");  
+            }
+            else if(value==1){
+                alert("computer won");
+                console.log("you choose paper and computer choose scissor");  
+            }else
+             {alert("you won");
+             console.log("you choose paper and computer choose rock");}  
+
+        }
+    </script>
+    
+</body>
+</html>
